@@ -15,9 +15,9 @@ tags:
 - llama.cpp
 ---
 
-# Omarchy Nano
+# Omarchy Nano 2B
 
-Omarchy Nano is an experimental, Omarchy-focused fine-tune of
+Omarchy Nano 2B is an experimental, Omarchy-focused fine-tune of
 [Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3.5-2B-Base). It is intended
 to answer questions about Omarchy configuration, commands, applications, and
 workflows. It is not an official Omarchy project.
@@ -69,7 +69,7 @@ Download the Q4_K_M file and run it with a llama.cpp-compatible runner:
 
 ```bash
 wget -O omarchy-nano.Q4_K_M.gguf \
-  https://huggingface.co/NewSonnet/omarchy-nano/resolve/main/gguf-q4_k_m/omarchy-nano.Q4_K_M.gguf
+  https://huggingface.co/NewSonnet/omarchy-nano-2b/resolve/main/gguf-q4_k_m/omarchy-nano.Q4_K_M.gguf
 
 llama-cli -m omarchy-nano.Q4_K_M.gguf -cnv
 ```

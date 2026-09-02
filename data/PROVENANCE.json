@@ -40,8 +40,8 @@
     "hardware": "Google Colab Tesla T4"
   },
   "artifacts": {
-    "adapter_repo": "https://huggingface.co/NewSonnet/omarchy-nano/tree/main/adapter",
-    "gguf_repo": "https://huggingface.co/NewSonnet/omarchy-nano/tree/main/gguf-q4_k_m",
+    "adapter_repo": "https://huggingface.co/NewSonnet/omarchy-nano-2b/tree/main/adapter",
+    "gguf_repo": "https://huggingface.co/NewSonnet/omarchy-nano-2b/tree/main/gguf-q4_k_m",
     "github_policy": "Source, preprocessing, provenance, and evaluation only; no weights, checkpoints, or credentials."
   }
 }
