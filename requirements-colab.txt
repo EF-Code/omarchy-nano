@@ -1,0 +1,15 @@
+# Pinned top-level packages used for the Omarchy Nano Colab run.
+# Runtime: Google Colab, Python 3.13, CUDA/Tesla T4.
+# Install in a fresh runtime with: %pip install -r requirements-colab.txt
+
+unsloth==2026.8.22
+unsloth-zoo==2026.8.17
+transformers==5.5.0
+datasets==4.3.0
+trl==0.24.0
+peft==0.17.1
+accelerate==1.10.1
+bitsandbytes==0.47.0
+huggingface_hub==0.34.4
+safetensors==0.6.2
+sentencepiece==0.2.0

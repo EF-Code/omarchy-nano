@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "model": "omarchy-nano",
+  "base_model": "Qwen/Qwen3.5-2B-Base",
+  "evaluation_type": "held-out language-model loss",
+  "dataset": {
+    "name": "Omarchy manual derived corpus",
+    "train_examples": 259,
+    "eval_examples": 37,
+    "split": "document-level"
+  },
+  "training": {
+    "method": "4-bit QLoRA",
+    "epochs": 2,
+    "max_sequence_length": 512,
+    "effective_batch_size": 8,
+    "learning_rate": 0.0002,
+    "hardware": "Google Colab Tesla T4"
+  },
+  "metrics": {
+    "final_train_loss": 1.6297433882048635,
+    "final_eval_loss": 1.666037
+  },
+  "interpretation": "These are optimization metrics on the held-out split, not a task-accuracy or command-safety benchmark.",
+  "limitations": [
+    "No independent question-answer benchmark was run.",
+    "The evaluation set is derived from the same manual source as training.",
+    "Commands and system changes must be checked against current Omarchy documentation before execution."
+  ],
+  "recorded_from": "Google Colab training run"
+}

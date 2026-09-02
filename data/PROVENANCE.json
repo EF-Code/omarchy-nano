@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "project": "omarchy-nano",
+  "base_model": "Qwen/Qwen3.5-2B-Base",
+  "source": {
+    "repository": "https://github.com/omacom/omarchy",
+    "ref": "quattro",
+    "commit": "d3d23fdddef846ebb98b52122a6ece66211c0daf",
+    "material": "Omarchy manual Markdown files",
+    "snapshot_policy": "Use the exact commit above; do not use a moving branch for reproduction."
+  },
+  "corpus": {
+    "non_empty_markdown_documents": 51,
+    "examples": 296,
+    "train_examples": 259,
+    "eval_examples": 37,
+    "split": "document-level",
+    "modality": "text-only",
+    "image_references_replaced": 79,
+    "image_replacement": "[image omitted]",
+    "raw_data_committed": false
+  },
+  "preprocessing": {
+    "script": "scripts/prepare_omarchy_data.py",
+    "output_format": "JSONL chat messages",
+    "source_path_recorded_per_example": true,
+    "split_seed": 3407,
+    "note": "The checked-in script is the reproducible, sanitized preprocessing path; verify counts after rebuilding from the source snapshot."
+  },
+  "training": {
+    "method": "4-bit QLoRA",
+    "lora_rank": 16,
+    "trainable_parameters": 10911744,
+    "trainable_fraction": 0.004906,
+    "epochs": 2,
+    "max_sequence_length": 512,
+    "effective_batch_size": 8,
+    "learning_rate": 0.0002,
+    "optimizer": "adamw_8bit",
+    "hardware": "Google Colab Tesla T4"
+  },
+  "artifacts": {
+    "adapter_repo": "https://huggingface.co/NewSonnet/omarchy-nano/tree/main/adapter",
+    "gguf_repo": "https://huggingface.co/NewSonnet/omarchy-nano/tree/main/gguf-q4_k_m",
+    "github_policy": "Source, preprocessing, provenance, and evaluation only; no weights, checkpoints, or credentials."
+  }
+}

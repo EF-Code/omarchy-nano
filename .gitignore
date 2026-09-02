@@ -1,0 +1,46 @@
+# Model weights and derived model artifacts.
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.msgpack
+*.h5
+checkpoints/
+checkpoint-*/
+outputs/
+runs/
+wandb/
+
+# Local datasets and large caches.
+cache/
+hf_cache/
+datasets_cache/
+raw_data/
+*.arrow
+*.parquet
+
+# Credentials and local configuration.
+.env
+.env.*
+*.token
+*token*.txt
+hf_token*
+credentials.json
+secrets.json
+
+# Colab/Drive mounts and notebook runtime state.
+content/
+/content/
+drive/
+/.config/
+*.log
+
+# Python and editor noise.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
