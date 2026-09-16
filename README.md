@@ -100,22 +100,24 @@ this fine-tune was trained for image understanding.
 ## Reproduce in Google Colab
 
 Open `omarchy-nano.ipynb` in Colab and run the cells in order. The default
-configuration trains the adapter and saves outputs in the runner's own Google
-Drive; it does not require Hugging Face authentication and does not publish
-anything.
+configuration trains the adapter and saves outputs in the ephemeral Colab
+runtime; it does not require Drive permission, Hugging Face authentication, or
+publishing. Set `USE_GOOGLE_DRIVE = True` in the configuration cell when you
+want datasets, metrics, adapters, and exports to survive a runtime reset.
 
-Publishing is optional. To publish a runner's own result, set
-`PUBLISH_TO_HUB = True`, set `HF_REPO` to that runner's own
-`namespace/repository`, and create a write-scoped Colab Secret named
-`HF_TOKEN`. The upload cell validates the artifact directory and uploads only
-the explicitly allowed model/configuration files. It does not upload training
-logs or training-argument metadata.
+Publishing is optional and works directly from either storage mode. To publish
+a runner's own result, set `PUBLISH_TO_HUB = True`, set `HF_REPO` to that
+runner's own `namespace/repository`, and create a write-scoped Colab Secret
+named `HF_TOKEN`. Run the upload cell before an ephemeral runtime is deleted.
+The upload cell validates the artifact directory and uploads only the
+explicitly allowed model/configuration files. It does not upload training logs
+or training-argument metadata.
 
-The notebook reuses an existing Drive dataset when present. If it is absent,
-it rebuilds a sanitized baseline from the pinned Omarchy source snapshot; the
-reference counts in the provenance and evaluation files describe the completed
-run, not a guarantee that every fresh preprocessing run will produce identical
-counts.
+The notebook reuses an existing dataset under the selected project directory
+when present. If it is absent, it rebuilds a sanitized baseline from the pinned
+Omarchy source snapshot; the reference counts in the provenance and evaluation
+files describe the completed run, not a guarantee that every fresh
+preprocessing run will produce identical counts.
 
 Model weights, checkpoints, and credentials are intentionally excluded from
 this GitHub repository. They are published separately on Hugging Face.
