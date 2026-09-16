@@ -100,18 +100,21 @@ this fine-tune was trained for image understanding.
 ## Reproduce in Google Colab
 
 Open `omarchy-nano.ipynb` in Colab and run the cells in order. The default
-configuration trains the adapter and saves outputs in the ephemeral Colab
-runtime; it does not require Drive permission, Hugging Face authentication, or
-publishing. Set `USE_GOOGLE_DRIVE = True` in the configuration cell when you
-want datasets, metrics, adapters, and exports to survive a runtime reset.
+configuration is a one-shot local run: it trains the adapter, exports the Q4_K_M
+GGUF, and leaves the artifacts in the Colab runtime. It does not require Drive
+permission, Hugging Face authentication, or publishing. Use Colab's Files panel
+to download selected artifacts before the runtime is deleted. The notebook
+prints the exact artifact paths and sizes at the end. Set
+`USE_GOOGLE_DRIVE = True` only when you need datasets, metrics, adapters, and
+exports to survive a runtime reset.
 
-Publishing is optional and works directly from either storage mode. To publish
-a runner's own result, set `PUBLISH_TO_HUB = True`, set `HF_REPO` to that
-runner's own `namespace/repository`, and create a write-scoped Colab Secret
-named `HF_TOKEN`. Run the upload cell before an ephemeral runtime is deleted.
-The upload cell validates the artifact directory and uploads only the
-explicitly allowed model/configuration files. It does not upload training logs
-or training-argument metadata.
+Publishing is optional and is not part of the one-shot path. If desired, it
+works directly from either storage mode: set `PUBLISH_TO_HUB = True`, set
+`HF_REPO` to that runner's own `namespace/repository`, and create a write-scoped
+Colab Secret named `HF_TOKEN`. Run the upload cell before an ephemeral runtime
+is deleted. The upload cell validates the artifact directory and uploads only
+the explicitly allowed model/configuration files. It does not upload training
+logs or training-argument metadata.
 
 The notebook reuses an existing dataset under the selected project directory
 when present. If it is absent, it rebuilds a sanitized baseline from the pinned
