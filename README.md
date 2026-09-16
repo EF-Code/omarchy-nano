@@ -97,6 +97,20 @@ this fine-tune was trained for image understanding.
 - `data/PROVENANCE.json` — source commit, dataset counts, and run settings.
 - `evaluation/results.json` — recorded held-out loss from the completed run.
 
+## Reproduce in Google Colab
+
+Open `omarchy-nano.ipynb` in Colab and run the cells in order. The default
+configuration trains the adapter and saves outputs in the runner's own Google
+Drive; it does not require Hugging Face authentication and does not publish
+anything.
+
+Publishing is optional. To publish a runner's own result, set
+`PUBLISH_TO_HUB = True`, set `HF_REPO` to that runner's own
+`namespace/repository`, and create a write-scoped Colab Secret named
+`HF_TOKEN`. The upload cell validates the artifact directory and uploads only
+the explicitly allowed model/configuration files. It does not upload training
+logs or training-argument metadata.
+
 The notebook reuses an existing Drive dataset when present. If it is absent,
 it rebuilds a sanitized baseline from the pinned Omarchy source snapshot; the
 reference counts in the provenance and evaluation files describe the completed
